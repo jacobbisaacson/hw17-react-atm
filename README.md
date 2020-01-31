@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![GA LOGO](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67) React ATM application
 
-## Available Scripts
+Let's make an ATM app! You will practice the dark art of manipulating components in real time.  You will create two components of the same class which will work independently of each other.  
 
-In the project directory, you can run:
+<img width="992" alt="atm" src="https://cloud.githubusercontent.com/assets/4304660/24376818/18c39a82-12f2-11e7-81e7-af618c22b3ed.png">
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone this repo, and run `npm install` from inside it. The repo already includes a partial React app. To launch the app, run `npm start`.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### In `src/App.js`:
+1. Pass a `name` property to each `Account` component, one for "Checking", the other for "Savings".  These will be used and accessed as `props`for our component. **Remember**: Props are immutable, that is, once they are declared, they cannot be changed while the application is running.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### In `src/Account.js`
 
-### `yarn build`
+2. Use the property you set in `App.js` to add the name of the account to the `<h2>`.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    Save your work. You should see two components named Checking and Savings.  You're getting there!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+3. Add a `balance` property to `state`, and set to 0 initially, in the Account component.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
+<img src="https://media.giphy.com/media/26xBMuHu0ZFngH7Ta/giphy.gif">
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Set a `ref` property on the text field, which is a callback function to save a reference to that text field in our `Account` object. This is one way we can access the data in the field later when we want to know what values to add/subtract from our account. You can also try to figure out how to do it using the react [form](https://reactjs.org/docs/forms.html) way, which we will be going into depth alot more tomorrow, but if you get blocked go ahead and use the `ref`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. When the `Deposit` button is clicked, you should add the amount entered in the text field to the balance
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. When the `Withdraw` button is clicked, you should deduct the amount entered in the text field to the balance.  **You should not be able to withdraw more than the current balance**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+7. If the current balance is 0, you should add a class of `zero` to the `<div className="balance">`. You can complete these computations in the render method, but before the JSX portion is returned.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Bonus: 
+- Handling an edge case
+    - As it stands, our app breaks if we hit Deposit or Withdraw on an empty form. Or if we put letters in there! How can we update our functionality to avoid this problem?
+    - **hint:** Don't assume NaN behaves as you might expect :)
+- Refactor the common code out of handleWithdrawlClick and handleDepositClick into a helper function or two.
+- Create a Transfer form that can transfer funds from Checking to Savings, or Savings to Checking! 
