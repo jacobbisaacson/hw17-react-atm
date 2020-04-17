@@ -9,17 +9,28 @@ class Account extends Component {
       balance: 0
     }
   }
+
+  handleClick = (event) => {
+    console.log("handling click");
+    console.log(event.target);
+    let balance = this.state.balance
+
+    this.setState({
+      balance: balance
+    })
+  }
+
   render() {
     console.log(this.ref1);
     return (
       <div className="account">
         <h2>{this.props.name}</h2>
-        <div className="balance">$0</div>
+        <div className="balance">{this.state.balance}</div>
         <input 
           type="text"
           ref={this.ref1}
           placeholder="enter an amount" />
-        <input type="button" value="Deposit" />
+        <input type="button" onClick={this.handleClick} value="Deposit" />
         <input type="button" value="Withdraw" />
       </div>
     )
