@@ -6,21 +6,28 @@ class Account extends Component {
     super()
     this.ref1 = React.createRef()
     this.state = {
-      balance: 10
+      balance: 100
     }
   }
 
   handleClick = (event) => {
-    let withdrawMoney = parseFloat(this.ref1.current.value)
-    // console.log(withdrawMoney);
+    let money = parseFloat(this.ref1.current.value)
+    console.log(typeof money);
+    console.log(event.target);
+    console.log(event.target.value);
+    // console.log(money);
     // console.log("handling click");
-    // console.log(event.target);
+    // console.log(event.target.value);
     let balance = this.state.balance
+
     if(event.target.value === "Deposit") {
-      balance += withdrawMoney
+      balance += money
     } else if(event.target.value === "Withdraw") {
-      balance -= withdrawMoney
+      balance -= money
     }
+// console.log(balance);
+// console.log(money);
+console.log(event.target.value);
 
     this.setState({
       balance: balance
@@ -43,7 +50,7 @@ class Account extends Component {
           value="Deposit" />
         <input 
           type="button" 
-          onClick={this.handleClilck} 
+          onClick={this.handleClick} 
           value="Withdraw" />
       </div>
     )
