@@ -30,8 +30,14 @@ class Account extends Component {
           type="text"
           ref={this.ref1}
           placeholder="enter an amount" />
-        <input type="button" onClick={this.handleClick} value="Deposit" />
-        <input type="button" value="Withdraw" />
+        <input 
+          type="button" 
+          onClick={this.handleClick} 
+          value="Deposit" />
+        <input 
+          type="button" 
+          onClick={this.handleClilck} 
+          value="Withdraw" />
       </div>
     )
   }
