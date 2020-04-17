@@ -11,14 +11,14 @@ class Account extends Component {
   }
 
   handleClick = (event) => {
-    let withdrawMoney = parseFloat(this.ref1.value)
+    let withdrawMoney = parseFloat(this.ref1.current.value)
     console.log(withdrawMoney);
     // console.log("handling click");
     // console.log(event.target);
     let balance = this.state.balance
-    if(event.target.value == "Deposit") {
+    if(event.target.value === "Deposit") {
       balance += withdrawMoney
-    } else if(event.target.value == "Withdraw") {
+    } else if(event.target.value === "Withdraw") {
       balance -= withdrawMoney
     }
 
