@@ -28,11 +28,20 @@ class Account extends Component {
     })
   }
 
+
+// if the current balance is 0, you should add a class of zero to the <div className="balance">. 
+// You can complete these computations in the render method, but before the JSX portion is returned.
+
   render() {
+    let zeroClass = "balance"
+      if(this.state.balance === 0) {
+        zeroClass = "zero-balance"
+      }
     return (
       <div className="account">
         <h2>{this.props.name}</h2>
-        <div className="balance">{this.state.balance}</div>
+        
+        <div className="{zeroClass}">{this.state.balance}</div>
         <input 
           type="text"
           ref={this.ref1}
