@@ -6,14 +6,21 @@ class Account extends Component {
     super()
     this.ref1 = React.createRef()
     this.state = {
-      balance: 0
+      balance: 10
     }
   }
 
   handleClick = (event) => {
-    console.log("handling click");
-    console.log(event.target);
+    let withdrawMoney = parseFloat(this.ref1.value)
+    console.log(withdrawMoney);
+    // console.log("handling click");
+    // console.log(event.target);
     let balance = this.state.balance
+    if(event.target.value == "Deposit") {
+      balance += withdrawMoney
+    } else if(event.target.value == "Withdraw") {
+      balance -= withdrawMoney
+    }
 
     this.setState({
       balance: balance
@@ -21,7 +28,7 @@ class Account extends Component {
   }
 
   render() {
-    console.log(this.ref1);
+    // console.log(this.ref1);
     return (
       <div className="account">
         <h2>{this.props.name}</h2>
