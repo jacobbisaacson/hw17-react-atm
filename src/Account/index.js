@@ -12,22 +12,16 @@ class Account extends Component {
 
   handleClick = (event) => {
     let money = parseFloat(this.ref1.current.value)
-    console.log(typeof money);
-    console.log(event.target);
-    console.log(event.target.value);
-    // console.log(money);
-    // console.log("handling click");
-    // console.log(event.target.value);
     let balance = this.state.balance
 
     if(event.target.value === "Deposit") {
       balance += money
     } else if(event.target.value === "Withdraw") {
-      balance -= money
-    }
-// console.log(balance);
-// console.log(money);
-console.log(event.target.value);
+      if (money > balance) {
+        } else {
+          balance -= money
+        }
+      }
 
     this.setState({
       balance: balance
@@ -35,7 +29,6 @@ console.log(event.target.value);
   }
 
   render() {
-    // console.log(this.ref1);
     return (
       <div className="account">
         <h2>{this.props.name}</h2>
