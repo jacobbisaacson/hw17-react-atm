@@ -35,7 +35,7 @@ class Account extends Component {
   render() {
     let zeroClass = "balance"
       if(this.state.balance === 0) {
-        zeroClass = "zero-balance"
+        zeroClass = "zero balance"
       }
     return (
       <div className="account">
