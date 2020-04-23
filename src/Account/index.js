@@ -6,7 +6,7 @@ class Account extends Component {
     super()
     this.ref1 = React.createRef()
     this.state = {
-      balance: 100
+      balance: 0
     }
   }
 
@@ -41,7 +41,7 @@ class Account extends Component {
       <div className="account">
         <h2>{this.props.name}</h2>
         
-        <div className="{zeroClass}">{this.state.balance}</div>
+        <div className={zeroClass}>{this.state.balance}</div>
         <input 
           type="text"
           ref={this.ref1}
